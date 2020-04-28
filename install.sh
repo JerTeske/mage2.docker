@@ -60,16 +60,10 @@ dockerRefresh() {
         osxDockerSync
         echo "docker-compose -f docker-compose.osx.yml up -d"
         docker-compose -f docker-compose.osx.yml up -d
-    elif [[ $1 != *"local"* ]]; then
-        echo "docker-compose -f docker-compose.stage.yml up -d"
-        docker-compose -f docker-compose.stage.yml up -d
     else
         echo "docker-compose up -d;"
         docker-compose up -d
     fi
-
-    echo "script sleeps for 2min so MariaDB is up when bin/magento setup:install is called";
-    sleep 120;
 }
 
 magentoComposerJson() {
@@ -319,10 +313,9 @@ prompt "rePlaceInEnv" "Absolute path to empty folder(fresh install) or running p
 prompt "rePlaceInEnv" "Domain Name (current: ${SHOPURI})" "SHOPURI"
 prompt "rePlaceInEnv" "Path to Project DB Dump or leave empty for fresh install (current: ${DB_DUMP})" "DB_DUMP"
 prompt "rePlaceInEnv" "Which PHP 7 Version? (7.1, 7.2, 7.3) (current: ${PHP_VERSION_SET})" "PHP_VERSION_SET"
-prompt "rePlaceInEnv" "Which MariaDB Version? (10.4.10, 10.5.2) (current: ${MARIADB_VERSION})" "MARIADB_VERSION"
 prompt "rePlaceInEnv" "Create a login screen? (current: ${AUTH_CONFIG})" "AUTH_CONFIG"
 prompt "rePlaceInEnv" "enable Xdebug? (current: ${XDEBUG_ENABLE})" "XDEBUG_ENABLE"
-prompt "rePlaceInEnv" "Install Sample Data? (current: ${SAMPLE_DATA})" "SAMPLE_DATA"
+prompt "rePlaceInEnv" "Install Sample Data(can be installed later with ./sample-data.sh)? (current: ${SAMPLE_DATA})" "SAMPLE_DATA"
 
 . ${PWD}/.env
 setAuthConfig "${AUTH_CONFIG}"
