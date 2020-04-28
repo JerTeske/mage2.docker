@@ -1,16 +1,16 @@
 ## Magento 2 OSX/Linux Docker
 
-**Nginx(Pagespeed), MariaDB, PHP 7, Redis, Elasticsearch**
+**Nginx(Pagespeed), percona, PHP 7, Redis, Elasticsearch**
 
 This setsup containers for Magento 2. 
 * **OSX** Docker Perfomcance as good as on linux using [http://docker-sync.io/ ](http://docker-sync.io/)
 * Change settings under `.env` in root folder  
 * Change **PHP Versions 7.1, 7.2, 7.3 with xdebug** all based on php:alpine docker images
-* PHP, MariaDB, Redis containers connect via sockets
+* PHP, percona, Redis containers connect via sockets
 * `install.sh` can include your **running project** files with its DB Dump or Magento Sample Data
 * `install.sh` can create **fresh Magento 2 Install**
 * `install.sh` can create **fresh Magento Install with Sample Data**
-* A preconfigured `env.php` connects to mariadb via sockets, redis via sockets with `install.sh`
+* A preconfigured `env.php` connects to percona via sockets, redis via sockets with `install.sh`
 * Elastic Search container ist preconfigured per SQL insert/update with `install.sh`
 
 ### Requirements
@@ -107,9 +107,9 @@ On OSX see link: https://stackoverflow.com/questions/41192680/update-max-map-cou
 * setup valid **SSL certificates** with [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_Encrypt) container
 * [Mailhog](https://github.com/mailhog/MailHog) container
 * [Magerun2](https://github.com/netz98/n98-magerun2) netz98 magerun CLI tools for Magento 2
-* **Extra Composer Packages**
+* **Composer Packages**
     * [hirak/prestissimo](https://github.com/hirak/prestissimo) composer package
-* **Extra Composer Packages with Magento 2 Installer**  
+* **Composer Magento 2 Packages**  
     * [magepal/magento2-gmailsmtpapp](https://github.com/magepal/magento2-gmail-smtp-app) SMTP Module
     * [vpietri/adm-quickdevbar](https://github.com/vpietri/magento2-developer-quickdevbar) Developer Toolbar
     * [mage2tv/magento-cache-clean](https://github.com/mage2tv/magento-cache-clean) Cache Cleaner

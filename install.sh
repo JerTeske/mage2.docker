@@ -64,6 +64,9 @@ dockerRefresh() {
         echo "docker-compose up -d;"
         docker-compose up -d
     fi
+
+#    echo "sleep 120sec";
+#    sleep 120;
 }
 
 magentoComposerJson() {
@@ -315,7 +318,7 @@ prompt "rePlaceInEnv" "Path to Project DB Dump or leave empty for fresh install 
 prompt "rePlaceInEnv" "Which PHP 7 Version? (7.1, 7.2, 7.3) (current: ${PHP_VERSION_SET})" "PHP_VERSION_SET"
 prompt "rePlaceInEnv" "Create a login screen? (current: ${AUTH_CONFIG})" "AUTH_CONFIG"
 prompt "rePlaceInEnv" "enable Xdebug? (current: ${XDEBUG_ENABLE})" "XDEBUG_ENABLE"
-prompt "rePlaceInEnv" "Install Sample Data(can be installed later with ./sample-data.sh)? (current: ${SAMPLE_DATA})" "SAMPLE_DATA"
+prompt "rePlaceInEnv" "Install Sample Data? (current: ${SAMPLE_DATA}) (can be installed later with ./sample-data.sh)" "SAMPLE_DATA"
 
 . ${PWD}/.env
 setAuthConfig "${AUTH_CONFIG}"
